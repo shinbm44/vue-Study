@@ -1,4 +1,7 @@
 <template>
+
+  <navbor/>
+
   <h1>영화 정보</h1>
   
   <div v-for="(item, i) in data" :key="i">
@@ -17,21 +20,20 @@
     </div>
   </div>
  
-  <div class ="modal" v-if="isModal">
-    <div class ="inner">
-      <h3>{{ data[selectedmovies].title }}</h3>
-      <p>영화 상세정보</p>
-      <button @:click="isModal=false" selec>닫기</button>
-
-    </div>
-  </div>
+  <Modal/>
 
 
 </template>
 
 <script>
-  import data from "./assets/movies.js"
+  import data from "./assets/movies.js";
+  import Navbor from "./components/Navbar.vue";
+  import Modal from "./components/Modal.vue";
+ 
+
+
   console.log(data);
+  console.log(Navbor);
 
   export default{
     name: "App",
@@ -49,6 +51,12 @@
         selectedmovies : 0,
       }
     },
+
+    components: {
+      Navbor: Navbor,
+      Modal: Modal // 템플릿에서 사용할 때는 대소문자 구분 x ?
+    }
+
   }
 </script>
   
