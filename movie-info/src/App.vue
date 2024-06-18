@@ -21,7 +21,8 @@
     </div>
   </div>
  
-  <Modal/>
+  <Modal :data="data" :isModal="isModal" :selectedmovies="selectedmovies"
+  @closeModal="isModal=false"/>
 
 
 </template>
@@ -30,7 +31,7 @@
   import data from "./assets/movies.js";
   import Navbor from "./components/Navbar.vue";
   import Modal from "./components/Modal.vue";
-import Event from './components/Event.vue';
+  import Event from './components/Event.vue';
  
 
 
