@@ -12,16 +12,16 @@
 
     <button @:click="increaseLike(i)">좋아요</button> <span>{{ item.like }}</span>
     <p>
-      <button @:click="isModal=true" >상세보기</button>
+      <button @:click="isModal=true; selectedmovies=i">상세보기</button>
     </p>
     </div>
   </div>
  
   <div class ="modal" v-if="isModal">
     <div class ="inner">
-      <h3>Detail</h3>
+      <h3>{{ data[selectedmovies].title }}</h3>
       <p>영화 상세정보</p>
-      <button @:click="isModal=false">닫기</button>
+      <button @:click="isModal=false" selec>닫기</button>
 
     </div>
   </div>
@@ -46,6 +46,7 @@
       return {
         isModal : false,
         data : data, // 이 부분의 data는 import한 data이다. 그리고 이 data는 assets/movies.js에 담긴 것
+        selectedmovies : 0,
       }
     },
   }
