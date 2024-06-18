@@ -5,14 +5,27 @@
     <figure>
       <img :src="`${this.data[i].imgUrl}`" :alt="item.title">
     </figure>
-    <div class =:info></div>
+    <div class =:info>
     <h3 class="bg-yellow" >{{ item.title }} </h3>
     <p>개봉: {{ item.year }}</p>
     <p>장르: {{ item.category  }} </p>
 
-    <button @:click="increaseLike(i)" class="button">좋아요</button> <span>{{ item.like }}</span>
+    <button @:click="increaseLike(i)">좋아요</button> <span>{{ item.like }}</span>
+    <p>
+      <button @:click="isModal=true" >상세보기</button>
+    </p>
+    </div>
   </div>
  
+  <div class ="modal" v-if="isModal">
+    <div class ="inner">
+      <h3>Detail</h3>
+      <p>영화 상세정보</p>
+      <button @:click="isModal=false">닫기</button>
+
+    </div>
+  </div>
+
 
 </template>
 
@@ -28,6 +41,7 @@
 
     data() {
       return {
+        isModal : false,
     
         data : [
           {
@@ -94,6 +108,7 @@ p {
 button {
   margin-right: 10px;
   margin-top: 1rem;
+  background: gainsboro;
 }
 
 .item {
