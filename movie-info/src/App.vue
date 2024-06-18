@@ -5,6 +5,8 @@
     <h3 class="bg-yellow" >{{ item.title }} </h3>
     <p>개봉: {{ item.year }}</p>
     <p>장르: {{ item.category  }} </p>
+
+    <button @:click="increaseLike(i)" class="button">좋아요</button> <span>{{ item.like }}</span>
   </div>
 
 </template>
@@ -12,24 +14,34 @@
 <script>
   export default{
     name: "App",
+
+    methods : {
+      increaseLike(i) {
+        this.data[i].like +=1;
+      }
+    },
+
     data() {
       return {
-
+    
         data : [
           {
             title: "노랑",
             year: 2023,
             category: "액션, 드라마",
+            like :0,
           },
           {
             title: "아쿠아맨과 로스트 킹덤",
             year: 2023,
             category: "액션, 판타지, 어드벤처",
+            like :0,
           },
           {
             title: "3월의 휴가",
             year: 2023,
-            category: "판타지, 드라마 "
+            category: "판타지, 드라마 ",
+            like :0,
           }
         ]
 
@@ -43,6 +55,11 @@
  .bg-yellow {
     background: yellow;
     padding: 10px
+  }
+  .button {
+    background: gray;
+    padding-right: 15px;
+    padding-left: 15px;
 
   }
 </style>
