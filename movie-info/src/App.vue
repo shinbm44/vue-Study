@@ -30,6 +30,9 @@
 </template>
 
 <script>
+  import data from "./assets/movies.js"
+  console.log(data);
+
   export default{
     name: "App",
 
@@ -42,32 +45,7 @@
     data() {
       return {
         isModal : false,
-    
-        data : [
-          {
-            title: "노량",
-            year: 2023,
-            category: "액션, 드라마",
-            like :0,
-            imgUrl: "public/노량.jpg"
-          },
-          {
-            title: "아쿠아맨과 로스트 킹덤",
-            year: 2023,
-            category: "액션, 판타지, 어드벤처",
-            like :0,
-            imgUrl: "public/아쿠아맨.jpg"
-          },
-          {
-            title: "3월의 휴가",
-            year: 2023,
-            category: "판타지, 드라마 ",
-            like :0,
-            imgUrl: "public/3일의휴가.jpg"
-          }
-        ]
-
-
+        data : data, // 이 부분의 data는 import한 data이다. 그리고 이 data는 assets/movies.js에 담긴 것
       }
     },
   }
