@@ -1,6 +1,7 @@
 <template>
 
   <navbor/>
+  <event :helloText="helloText"/>
 
   <h1>영화 정보</h1>
   
@@ -29,6 +30,7 @@
   import data from "./assets/movies.js";
   import Navbor from "./components/Navbar.vue";
   import Modal from "./components/Modal.vue";
+import Event from './components/Event.vue';
  
 
 
@@ -49,12 +51,14 @@
         isModal : false,
         data : data, // 이 부분의 data는 import한 data이다. 그리고 이 data는 assets/movies.js에 담긴 것
         selectedmovies : 0,
+        helloText : "영화 소개 페이지"
       }
     },
 
     components: {
       Navbor: Navbor,
-      Modal: Modal // 템플릿에서 사용할 때는 대소문자 구분 x ?
+      Modal: Modal,
+      Event // 템플릿에서 사용할 때는 대소문자 구분 x ?
     }
 
   }
